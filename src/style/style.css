@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: whitesmoke;
+}
+
+.notes_app {
+  margin-left: 21%;
+  margin-right: 13%;
+}
+
+.notes_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.notes_item {
+  border: 2px solid;
+  height: 280px;
+  width: 250px;
+}
+
+.notes_body {
+  position: relative;
+}
+
+
+.notes_content {
+  padding: 10px;
+}
+
+.notes_body_title {
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 220px;
+}
+
+.notes_body_date {
+  color: grey;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.notes_body_body {
+  font-size: 14px;
+  width: 90%;
+}
+
+.notes_action {
+  position: absolute;
+  bottom: -80px;
+  background-color: blue;
+}
