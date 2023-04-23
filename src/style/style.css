@@ -9,29 +9,83 @@ body {
 }
 
 .notes_app {
-  margin-left: 21%;
-  margin-right: 13%;
+  margin-left: 15%;
+  margin-right: 14%;
 }
 
-.notes_list {
+.notes_app_title {
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.new_notes {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 70px;
+  margin-top: 50px;
+}
+
+.new_notes_title {
+  margin-left: -190px;
+}
+
+.max_char_new_notes_title {
+  color: grey;
+  font-size: 14px;
+  margin-right: -290px;
+  margin-bottom: -10px;
+  text-align: right;
+}
+
+.new_notes input,
+.new_notes textarea,
+.new_notes button {
+  border: 1px solid;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+  padding: 5px 10px;
+  width: 380px;
+}
+
+.new_notes button {
+  cursor: pointer;
+  width: 400px;
+}
+
+.new_notes button:hover {
+  background-color: rgb(224, 224, 224);
+}
+
+.notes_card_list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
 }
 
-.notes_item {
-  border: 2px solid;
-  height: 280px;
+.notes_card_item {
+  border: 1px solid;
+  border-radius: 10px;
+  height: 250px;
   position: relative;
   width: 250px;
 }
 
-.notes_content {
+.no_notes_card_item {
+  color: grey;
+  font-size: 26px;
+  margin-top: 50px;
+  margin-left: 40%;
+}
+
+.notes_card_content {
   padding: 10px;
 }
 
-.notes_body_title {
+.notes_card_content_title {
   font-size: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -39,33 +93,45 @@ body {
   width: 220px;
 }
 
-.notes_body_date {
+.notes_card_content_date {
   color: grey;
   font-size: 14px;
   margin: 5px 0;
 }
 
-.notes_body_body {
+.notes_card_content_body {
   font-size: 14px;
   text-align: justify;
+  margin-top: 10px;
 }
 
-.notes_action {
+.notes_card_action {
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
 }
 
-.notes_action button {
-  background-color: cornsilk;
+.notes_card_action button {
   border: none;
   cursor: pointer;
   padding: 10px 0;
   width: 50%;
-  border-top: 2px solid;
+  background-color: black;
 }
 
-.notes_action button:last-child {
-  border-left: 2px solid;
+.notes_card_action button:first-child {
+  color: red;
+  font-weight: 700;
+  border-bottom-left-radius: 7px;
+}
+
+.notes_card_action button:last-child {
+  color: khaki;
+  font-weight: 700;
+  border-bottom-right-radius: 7px;
+}
+
+.notes_card_action button:last-child {
+  border-left: 2px solid white;
 }
