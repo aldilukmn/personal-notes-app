@@ -1,10 +1,13 @@
-function NotesCardAction({id, onDelete }) {
+function NotesCardAction({ id, onDelete, onArchive, isArchived }) {
   return (
-    <div class="notes_card_action">
+    <div className="notes_card_action">
       <button onClick={() => onDelete(id)}>Hapus</button>
-      <button>Arsipkan</button>
+      <button onClick={() => onArchive(id)}>
+        {isArchived ? "Pindahkan" : "Arsipkan"}
+      </button>
     </div>
   );
 }
+
 
 export default NotesCardAction;
