@@ -36,9 +36,25 @@ class NewNotes extends React.Component {
 
   onSubmitChangeEventHandler(event) {
     event.preventDefault();
-    if (this.state.title.trim() === "" || this.state.body.trim() === "") {
+
+    const title = this.state.title.trim();
+    const body = this.state.body.trim();
+
+    if (title === "" && body === "") {
+      alert("Judul dan isi catatan tidak boleh kosong!");
       return;
     }
+
+    if (title === "") {
+      alert("Judul catatan tidak boleh kosong!");
+      return;
+    }
+
+    if (body === "") {
+      alert("Isi catatan tidak boleh kosong!");
+      return;
+    }
+
     this.props.addNotes(this.state);
     this.setState({
       title: "",
@@ -50,9 +66,7 @@ class NewNotes extends React.Component {
     return (
       <form className="new_notes" onSubmit={this.onSubmitChangeEventHandler}>
         <h2 className="new_notes_title">Buat Catatan Baru</h2>
-        {this.state.title.length === 0 ? 
-        (<p className="max_char_new_notes_title">Sisa karakter: 50</p>) : 
-        (<p className="max_char_new_notes_title">Sisa karakter: {this.state.remainChar}</p>)}
+        {this.state.title.length === 0 ? <p className="max_char_new_notes_title">Sisa karakter: 50</p> : <p className="max_char_new_notes_title">Sisa karakter: {this.state.remainChar}</p>}
         <input type="text" placeholder="Tuliskan judulmu di sini ..." value={this.state.title} onChange={this.onTitleChangeEventHandler} />
         <textarea cols="30" rows="12" placeholder="Tuliskan catatanmu di sini ..." value={this.state.body} onChange={this.onBodyChangeEventHandler}></textarea>
         <button>Buat</button>
