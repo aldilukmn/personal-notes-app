@@ -48,7 +48,7 @@ class NewNotes extends React.Component {
 
   render() {
     return (
-      <form className="new_notes " onSubmit={this.onSubmitChangeEventHandler}>
+      <form className="new_notes" onSubmit={this.onSubmitChangeEventHandler}>
         <h2 className="new_notes_title">Buat Catatan Baru</h2>
         {this.state.title.length === 0 ? 
         (<p className="max_char_new_notes_title">Sisa karakter: 50</p>) : 

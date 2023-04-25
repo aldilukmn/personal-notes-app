@@ -2,17 +2,20 @@ import React from "react";
 import { getInitialData } from "../utils/index";
 import NewNotes from "./NewNotes";
 import NotesCard from "./NotesCard";
+import NotesSearch from "./NotesSearch";
 
 class NotesApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       notes: getInitialData(),
+      search: "",
     };
 
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onAddNotesHandler = this.onAddNotesHandler.bind(this);
     this.onArchiveNotesHandler = this.onArchiveNotesHandler.bind(this);
+    this.onSearchNotesHandler = this.onSearchNotesHandler.bind(this);
   }
 
   onDeleteHandler(id) {
@@ -49,14 +52,25 @@ class NotesApp extends React.Component {
     });
     this.setState({ notes });
   }
-  
+
+  onSearchNotesHandler(event) {
+    this.setState(() => {
+      return {
+        search: event.target.value,
+      };
+    });
+  }
 
   render() {
+    const searchNotes = this.state.notes.filter((note) => {
+      return note.title.toLowerCase().includes(this.state.search.toLowerCase());
+    });
+
     return (
       <div className="notes_app">
-        <h1 className="notes_app_title">Aplikasi Catatan Pribadi</h1>
-        <NewNotes addNotes={this.onAddNotesHandler}/>
-        <NotesCard notes={this.state.notes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveNotesHandler} />
+        <NotesSearch onSearch={this.onSearchNotesHandler} value={this.state.search} />
+        <NewNotes addNotes={this.onAddNotesHandler} />
+        <NotesCard notes={searchNotes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveNotesHandler} />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import NoNotesCardItem from "./NotesNoCardItem";
 import NotesCardItem from "./NotesCardItem";
 
-function NotesCardList({ notes, onDelete, onArchive, isArchived}) {
+function NotesCardList({ notes, onDelete, onArchive}) {
   return (
     <div className="notes_card_list">
       {notes.length === 0 ? (
